@@ -4,7 +4,10 @@
   <body>
     <div class="wrapper">
       @include('header.html')
-      <main class="main">@include('hero.html') @include('products.html')</main>
+      <main class="main">
+        @include('hero.html') @include('products.html') @include('faq.html')
+        @include('about.html')
+      </main>
       @include('footer.html')
     </div>
     <script type="module" src="./assets/js/main.min.js"></script>
