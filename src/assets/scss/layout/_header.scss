@@ -1,0 +1,236 @@
+// header
+.header {
+  &__logo {
+    display: block;
+    flex-shrink: 0;
+    margin-left: 80px;
+  }
+  &__top {
+    background: #0a14b4;
+    padding-top: 10px;
+    padding-bottom: 12px;
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  &__item {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 15px;
+      background: url('../img/icons/ok.svg') no-repeat center/cover;
+    }
+
+    color: #a9adf1;
+    padding-left: 40px;
+    font-size: 14px;
+  }
+
+  &__inner {
+    background: linear-gradient(90deg, #001039 0%, #05194a 100%);
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: $medium) {
+      justify-content: space-between;
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    &.active {
+      transform: translateY(0);
+    }
+
+    @media screen and (max-width: $medium) {
+      position: fixed;
+      overflow-y: auto;
+
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 10;
+
+      flex-direction: column;
+      gap: 30px;
+
+      max-width: 300px;
+
+      padding: 50px 0;
+
+      transform: translateX(100%);
+      transition: transform 0.6s ease-in-out;
+
+      border-radius: 5px 0 0 5px;
+      background-color: $light;
+    }
+  }
+
+  &__buttons {
+    margin-left: auto;
+    display: flex;
+
+    @media screen and (max-width: $medium) {
+      margin-left: 0;
+      flex-direction: column;
+    }
+  }
+
+  &__btn {
+    padding: 17px 25px;
+    transition: background-color 0.2s ease-in-out;
+    @include hover {
+      background-color: #1f2ade;
+      svg {
+        path {
+          transition: stroke 0.2s linear;
+          stroke: #009af8;
+        }
+      }
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: $light;
+    @media screen and (max-width: $medium) {
+      color: $dark;
+    }
+  }
+
+  &__nav {
+    margin-left: auto;
+    @media screen and (max-width: $medium) {
+      margin-left: 0;
+    }
+  }
+}
+.nav {
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 56px;
+
+    @media screen and (max-width: $medium) {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    color: $light;
+    @media screen and (max-width: $medium) {
+      color: $dark;
+    }
+
+    @include hover {
+      &::after {
+        transform: scaleX(1);
+        transform-origin: left bottom;
+      }
+      // color: $dark;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+
+      height: 1px;
+      width: 100%;
+
+      background: $aqua;
+      border-radius: 5px;
+      transform: scaleX(0);
+      transition: transform 200ms ease-in-out;
+      transform-origin: right bottom;
+    }
+  }
+}
+
+.dropdown {
+  cursor: pointer;
+  padding-right: 25px;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background: url('../img/icons/plus.svg') no-repeat center/cover;
+  }
+  position: relative;
+
+  @include hover {
+    .sub-menu {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__link {
+    color: $light;
+  }
+}
+
+.sub-menu {
+  &::before {
+    position: absolute;
+    content: '';
+    top: -12px;
+    left: 0;
+    width: 100%;
+    height: 12px;
+  }
+  //
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+
+  //
+
+  position: absolute;
+  padding: 5px;
+  border-radius: 5px;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  min-width: 130px;
+  text-align: center;
+  background-color: $aqua;
+  z-index: 3;
+  &__item {
+    @include hover {
+      background-color: #05194a;
+      transition: background-color 300ms ease;
+      border-radius: 10px;
+    }
+  }
+  &__link {
+    display: block;
+    color: $light;
+    padding: 10px 10px;
+  }
+}

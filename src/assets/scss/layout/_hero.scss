@@ -1,0 +1,73 @@
+.hero {
+  position: relative;
+  &::before {
+    content: '';
+    inset: 0;
+    position: absolute;
+    background-color: rgba(0, 7, 112, 0.7);
+    z-index: 1;
+  }
+  min-height: 600px;
+  background: url('../img/heroBg.png') no-repeat center/cover;
+  @media screen and (max-width: $tablet) {
+    background: none;
+    &::before {
+      background-color: #252fcb;
+    }
+  }
+  @media screen and (max-width: $medium) {
+    min-height: 100%;
+  }
+
+  &__container {
+  }
+  &__inner {
+    padding-top: 131px;
+    @media screen and (max-width: $medium) {
+      padding: 66px 0;
+    }
+    @media screen and (max-width: $tablet) {
+      padding: 48px 0;
+    }
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 0px;
+    @media screen and (max-width: $medium) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(2, auto);
+      grid-column-gap: 0px;
+      grid-row-gap: 24px;
+    }
+  }
+
+  &__title {
+    grid-column: 4 span;
+    color: $light;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 120%;
+    @media screen and (max-width: $large) {
+      font-size: 40px;
+    }
+    @media screen and (max-width: $medium) {
+      font-size: 35px;
+    }
+    @media screen and (max-width: $tablet) {
+      font-size: 40px;
+    }
+    @media screen and (max-width: $small) {
+      font-size: 28px;
+    }
+  }
+
+  &__text {
+    grid-column: 5 span;
+    color: $light;
+    line-height: 26px;
+  }
+}
+.container {
+}
