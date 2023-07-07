@@ -1,7 +1,7 @@
 .burger {
   position: relative;
   display: none;
-  @media screen and (max-width: $medium) {
+  @media screen and (max-width: 1530px) {
     display: flex;
   }
   z-index: 10;
@@ -15,6 +15,10 @@
   background-color: transparent;
 
   &.active {
+    .dot {
+      opacity: 0;
+      transform: translateX(20px);
+    }
     span {
       background-color: transparent;
       transition: background 0.2s ease-out;
@@ -69,4 +73,32 @@
       top: -7px;
     }
   }
+}
+
+.dot1 {
+  position: absolute;
+  left: -10px;
+  top: 22%;
+}
+.dot2 {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.dot3 {
+  bottom: 22%;
+}
+
+.dot1,
+.dot2,
+.dot3 {
+  position: absolute;
+  left: -10px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.dot {
+  transition: opacity 400ms ease, transform 400ms ease;
 }
