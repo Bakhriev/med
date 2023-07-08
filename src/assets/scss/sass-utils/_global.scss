@@ -5,6 +5,9 @@ body {
   font-size: 16px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   background-color: #fbfbfb;
+  &.active {
+    overflow: hidden;
+  }
 }
 
 // Wrapper

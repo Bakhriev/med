@@ -240,6 +240,12 @@
   overflow: auto;
   width: 100%;
   height: 100%;
+  transform: translateX(3000px);
+  transition: transform 0.3s ease-in-out;
+  &.active {
+    transform: translateX(0);
+  }
+
   &__container {
     padding-top: 40px;
     display: flex;
@@ -280,6 +286,7 @@
     padding-bottom: 100px;
     display: flex;
     gap: 300px;
+
     @media screen and (max-width: $medium) {
       gap: 50px;
       justify-content: space-between;

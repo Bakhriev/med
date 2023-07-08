@@ -1,15 +1,13 @@
 const burgerMenu = () => {
   const burger = document.querySelector('.burger')
-  const navigation = document.querySelector('.header__navigation')
-  const overlay = document.querySelector('.overlay')
-  const elements = [burger, navigation, overlay]
+  const mobile = document.querySelector('.mobile')
+  const body = document.querySelector('body')
+  const elements = [burger, mobile, body]
 
   const toggleActiveClass = () =>
     elements.forEach(element => element.classList.toggle('active'))
 
   burger.addEventListener('click', toggleActiveClass)
-
-  overlay.addEventListener('click', toggleActiveClass)
 
   window.addEventListener('resize', () => {
     const { innerWidth } = window
