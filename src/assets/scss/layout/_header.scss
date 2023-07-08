@@ -89,6 +89,7 @@
   }
 
   &__btn {
+    display: inline-block;
     padding: 17px 25px;
     transition: background-color 0.2s ease-in-out;
     @include hover {
@@ -215,7 +216,7 @@
   min-width: 130px;
   text-align: center;
   background-color: $aqua;
-  z-index: 3;
+  z-index: 12;
   &__item {
     @include hover {
       background-color: #05194a;
@@ -228,4 +229,116 @@
     color: $light;
     padding: 10px 10px;
   }
+}
+
+// Mobile Menu
+
+.mobile {
+  position: fixed;
+  z-index: 10;
+  background-color: #262fc9;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  &__container {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    background-color: #051747;
+    width: max-content;
+    border-radius: 4px;
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    padding: 16px 25px;
+    color: $light;
+    transition: background-color 0.2s ease;
+    &.active {
+      svg {
+        stroke: #009af8;
+        path {
+          stroke: #009af8;
+        }
+      }
+    }
+    @include hover {
+      background-color: #0a2a85;
+    }
+  }
+
+  &__wrapper {
+    padding-bottom: 100px;
+    display: flex;
+    gap: 300px;
+    @media screen and (max-width: $medium) {
+      gap: 50px;
+      justify-content: space-between;
+      width: 100%;
+    }
+    @media screen and (max-width: 550px) {
+      flex-direction: column;
+    }
+    margin-top: 40px;
+  }
+
+  &__col {
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+  &__col-link {
+    color: $light;
+  }
+
+  &__submenu {
+    margin-top: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  &__subitem {
+    margin-left: 6px;
+    padding-left: 20px;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 16px;
+      background-color: #fb4d42;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      left: -8px;
+      top: 5%;
+      transform: translateY(-50%);
+      rotate: 90deg;
+      width: 3px;
+      height: 16px;
+      background-color: #fb4d42;
+    }
+  }
+
+  &__sublink {
+    color: $light;
+  }
+}
+.container {
 }
